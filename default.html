@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta name="viewport" content="text/html; charset=utf-8; initial-scale=1.0; maximum-scale=1.0; width = device-width;" http-equiv="Content-Type" />
+<title>Learn App Development/Programming at Holy Rosary!</title>
+<link href="css/holy_rosary.css" rel="stylesheet" type="text/css" />
+<link href="css/m-styles.min.css" rel="stylesheet" type="text/css" />
+<link href="css/m-buttons.min.css" rel="stylesheet" type="text/css" />
+<link href="css/m-icons.min.css" rel="stylesheet" type="text/css" />
+<link href="css/animate.css" rel="stylesheet" type="text/css" />
+<link href="css/toastr.css" rel="stylesheet" type="text/css" />
+
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/toastr.js"></script>
+
+
+<script src="js/jquery.spritely-0.6.1.js"></script>
+<!-- WELCOME HOLY ROSARY STUDENTS!! 
+
+If your reading this, HATS OFF! You are doing exactly what a veteran programmer does:
+viewing the source code. There is absolutely no reason to reinvent the wheel, an
+all programmers benefit from checking out the work of others. In fact this slideshow
+website template was written by some guy in Germany, who offered his code as a sample 
+for others. I hope you decide to join our group, as it should be both fun and productive.
+I'm happy to answer any questions you may have, as well as looking at your work and
+telling you if I think there's anything out there in the awesome universe of Jquery and CSS
+frameworks/plugins that might help you.
+
+Let the app development begin!
+
+warm wishes
+Stacey Reiman
+
+-->
+
+<!-- This is for the ipad. Check it there too. -->
+<style>
+
+#container {
+width:200px;
+height:100%;
+position:absolute;	
+top:80%;
+right:100%;	
+}
+	#bird {
+			background: transparent url(img/bird-forward-back.png) 0 0 no-repeat;
+			position: absolute;
+			top: -70px;
+			left: 5px;
+			width: 180px;
+			height: 123px;
+			z-index: 2000;
+			cursor: pointer;
+		}
+@font-face {
+    font-family: 'DestroyRegular';
+    src: url('fonts/DESTROY_-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'SourceCodeProLight';
+    src: url('fonts/SourceCodePro-Light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'PatagoniaRegular';
+    src: url('fonts/Patagonia-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'AaarghNormal';
+    src: url('fonts/Aaargh-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+		
+
+</style>
+
+<script type="text/javascript">
+
+		(function($) {
+			$(document).ready(function() {
+	
+
+					//showDetails()		
+				$('#bird')
+					.sprite({fps: 9, no_of_frames: 3})
+					.spRandom({top: 0, bottom: 0, left: 800, right: 800})
+					//.isDraggable()
+					//.activeOnClick()
+					.active();
+				//$('body').flyToTap();	
+						
+			});
+		})(jQuery);
+		
+$(window).load(function () {
+	//toastr.warning('hey')
+//$('#message').html('wassupe')
+})	
+	
+function showDetails() {
+//$('#detailContainer').addClass('animated bounceIn')
+TweenMax.to($('.m-btn'),.1, {autoAlpha:0});
+TweenMax.to($('#detailContainer'), 0, {scale:0});
+
+TweenMax.to($('#detailContainer'), 1, {scale:1,autoAlpha:1});
+}
+
+function hideDetails() {
+//$('#detailContainer').addClass('animated bounceOut')
+TweenMax.to($('.m-btn'),.6, {autoAlpha:1});
+TweenMax.to($('#detailContainer'), 1, {scale:0,autoAlpha:0});
+
+
+}
+
+function birdClicked() {
+toastr.info('bird clicked')
+
+
+TweenMax.to($('#anim'), 1, {className: "+=bounceIn"});
+
+}
+
+function animateText() {
+
+var arr = new Array();
+
+$('.textlist li').each(function(i) { 
+$(this).css('margin-left', 50*i+'px')
+  arr.push(this); 
+})
+
+TweenMax.staggerTo(arr,.1,{scale:0});
+TweenMax.staggerTo(arr,.4,{scale:1.2, left:"-=50px", autoAlpha:1,delay:.5},.9,staggerBack);
+
+
+function staggerBack() {
+TweenMax.staggerTo(arr,.4,{left:"+=50px", marginLeft: 120, delay:1},.2);
+TweenMax.to(arr, 1, {className: "+=tada", delay:3});
+//TweenMax.to(arr, 2, {rotationY:360, transformOrigin:"left 75% -300",delay:3})
+}
+}
+
+ function BlockMove(event) {
+  // Tell Safari not to move the window.
+  event.preventDefault() ;
+ }
+</script> 
+
+</head>
+
+
+
+<!-- These divs are used for anchor-jumps with the pseudoclass :target -->
+
+<div id="a1">
+ <div id="a2">
+  <div id="a3">
+ 	<div id="a4">
+   <!-- Top Navigation. Ya, tables are evil. -->
+
+   <table> 
+    <tbody><tr> 
+     <td><a id="p1" href="#a1">what</a></td> 
+     <td><a id="p2" href="#a2" onclick="animateText()">why</a></td> 
+     <td><a id="p3" href="#a3">when</a></td> 
+     <td><a id="p4" href="#a4">how</a></td> 
+    </tr> 
+   </tbody></table>
+  
+   <!-- Fallback -->
+
+   <div class="page" id="i0">
+
+    <h1>Your browser can't view our cool slideshow! 
+    Please check us out on a browser made in the last decade :)</h1>
+
+   </div>
+
+
+
+   <!-- First Page #a1 -->
+
+   <div class="page" id="i1">
+
+<!-- begin the POPUP for details -->
+ <div id="detailContainer">
+ <div id="detailPopup">
+
+<div id="close" onclick="hideDetails()">X</div>
+<iframe class="iframe" scrolling="no" src="details.html"></iframe>
+</div>
+</div>
+<!-- end of the POPUP for details -->
+  
+   <div id="intro1" class="intro1">
+
+<div id="container">
+<div id="bird" onclick="birdClicked()">
+</div>
+</div>
+
+<p style="width:140%">Come be part of something 
+<font style="color: #CC3300;font-size:larger; font-family:'DestroyRegular'"><b>uber cool!</b></font></p>
+<p style="color:purple;font-family:'PatagoniaRegular'; text-align:center;font-weight:bolder;"> 
+Join our programming/app development group at Holy Rosary.</p> 
+
+<p style="width:120%">Lead by kindergarten mom Stacey Reiman, 
+developer of 20 different educational and children's game apps across the app universe.</p>
+
+<div style="margin-left:200px;width:100%;margin-top:-20px;" >
+<a class="m-btn purple big" onclick="showDetails()" style="z-index:100000">Read details here! <i class="m-icon-big-swapright m-icon-white"></i> 
+</a>
+</div>
+
+ 	
+
+</div>
+</div>
+
+
+   <!-- Second Page #a2 -->
+
+   <div class="page" id="i2">
+
+
+   <div id="intro2" class="intro2">
+ 
+  <ul class="textlist" style="visibility:hidden;text-align:left;margin-left:200px;margin-top:20px;line-height:190%;">
+   <li class="animated">Use your brain</li>
+     <li class="animated">Create cool stuff</li> 
+       <li class="animated">Explore new horizons</li>
+          <li class="animated">Learn marketable skills</li>  
+               
+            <li class="animated">Develop for friends and family</li>   
+            <li class="animated">Programming is FUN!</li>   
+
+   </ul>
+   </div>
+   </div>
+
+   <!-- Third Page #a3 -->
+
+   <div class="page" id="i3">
+
+<!--    <a class="backbutton" href="#a2"></a>
+    <a class="nextbutton" href="#a4"></a>
+-->    
+   <div id="intro3" class="intro3"><p>Ms. Neumayr and I have batted around the idea of <font style="font-family:'PatagoniaRegular'">Saturday mornings</font>, as we know you guys are all really busy after school.</p>
+   <p style="margin-left:150px;margin-top:50px;"> Please let Ms. Neumayr know if you have a strong preference for a different day, or a time on Saturday...</p></div>
+
+ 
+
+  </div>
+  
+   <!-- Third Page #a3 -->
+    <div class="page" id="i4">
+
+<!--    <a class="backbutton" href="#a3"></a>
+    <a class="nextbutton" href="#a1"></a>
+-->    
+   <div id="intro4" class="intro4">
+   <p>Signing up is easy!</p>
+<p>Just tell somebody in the office</p>
+<p style="text-align:center; font-size:200%;font-family:'PatagoniaRegular'"> 
+"hey I want to be part of that cool programming group!"</p>
+  
+ </div>
+<!--  <button id="anim" class="m-btn blue big animated" style="z-index:500000" id="message" onclick="birdClicked()"></button>
+ 
+--></div>
+
+<!-- The End -->
+
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Holy Rosary Programming Group Details</title>
+<script src="js/jquery-1.8.1.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/presenteer.js"></script>
+<script src="js/sylvester.min.js"></script>
+<script src="js/jquery.textfill.js"></script>	
+<link href="css/animate.css" rel="stylesheet" type="text/css" />
+<style>
+@font-face {
+    font-family: 'DestroyRegular';
+    src: url('fonts/DESTROY_-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'SourceCodeProLight';
+    src: url('fonts/SourceCodePro-Light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+	body, html { font: 14px arial, verdana; margin: 0px; padding: 0px; }
+		h1, h2, h3, h4 { color: #cc1919; }
+		a { text-decoration: none; border: none; }
+		* { 
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+		
+		.inline { display: inline; margin: 0px; }
+		
+	
+		.container { width: 800px; margin: 10px auto; padding: 20px; box-shadow: 0px 0px 5px #777; }
+		
+		.source { width: 100%; display: inline-block; background: #fafafa; padding: 10px; }
+	
+		.presentationcontainer { 
+			overflow: hidden; 
+
+			cursor: pointer; 
+		}
+	/*	.presentation > div { float: left; clear: both; padding: 20px; }*/
+		
+		#presentationcontainer1 { height: 550px;
+		 }
+		
+		#presentationcontainer2 { height: 100px; width: 80%; float: left; }
+		#presentationcontainer2_counter { height: 100px; width: 20%; float: right; background: #bbbbdd; }
+		
+		#presentationcontainer3 { height: 100px; }
+		#presentation3 { width: 400%; }
+		#presentation3 > div { width: 25%; float: left; clear: none; }
+		#presentationcontainer3_counter { height: 40px; }
+		#presentation3_counter > div { clear: none; }
+		
+		.clearfix { visibility: hidden; font-size: 1px; clear:both; }
+		
+		.syntaxhighlighter.js { overflow-y: hidden !important; }
+		
+		/* specify smooth animations between states */
+		.presentation { 
+		    -moz-transition: all 0.7s ease; 
+		    -webkit-transition: all 0.7s ease; 
+		    -o-transition: all 0.7s ease; 
+		    -ms-transition: all 0.7s ease;
+		    transition: all 0.7s ease; 
+			-webkit-perspective: hidden; /* suppress flicker */
+			-webkit-transform: translateZ(0); /* make animation GPU accelerated by applying -webkit-transform: translateZ(0); */
+	    }
+
+#presentation {
+position:absolute;
+top:0px;
+left:0;
+width:750px;
+height:auto;
+background-color:#C7A7FC;
+font-family:'SourceCodeProLight';
+font-size:x-large;	
+z-index:100001;
+
+}
+#subjects,.subjects,#tools,#challenge {
+width:750px;
+height:550px;
+/*background-color:aqua;
+*/}
+
+#subjects {
+zoom:1.4;	
+padding-right:180px;
+padding-left:50px;
+width:700px;
+
+}
+.subjects{
+width:600px;	
+zoom:1.1;
+}
+#tools {
+width:700px;
+
+margin-left:200px;
+
+}
+#challenge {
+margin-left:-200px;
+font-size:122%;
+padding-left:50px;
+padding-right:10px;
+
+}
+
+</style>
+<script>$(window).load(function() {
+
+		var presentation1 = new Presenteer(
+        "#presentation1", 
+        $("#presentation1 > div"), 
+        {
+centerHorizontally : true, // When showing an element, center it horizontally
+    centerVertically : true, // When showing an element, center it vertically
+
+        onBeforeEnter : function(elm) { 
+/*setTimeout(function(){
+$('#subjects').addClass('animated rotateIn');       
+        },500);
+        
+*/      }   
+        }
+    			
+		);
+				$("#presentationcontainer1").on("click", function() { presentation1.next(); });
+				presentation1.start();
+				
+
+		
+			});
+			
+			
+</script>
+
+</head>
+
+<body>
+	
+
+ <div id="presentation">
+ <div class="presentationcontainer" id="presentationcontainer1">
+					<div class="presentation" id="presentation1">
+<div id="subjects" class="animated">
+<h1>The Subjects</h1>
+<p>We'll begin with the basics of programming. We'll discuss concepts such as:</p>
+<ul>
+<li>variables</li>
+<li>functions</li>
+<li>arrays</li>
+<li>loops</li>
+<li>syntax&nbsp; &nbsp; &nbsp; click for more</li>
+</ul>
+<p></p></div>
+<div class="subjects">
+<p>The world of programming is vast, so we'll focus on a technology and its 3 languages
+ you can use to build web, desktop, and mobile apps quickly: HTML5. HTML5 apps consist of 3 parts.</p>
+<ul>
+<li>html</li>
+<li>javascript</li>
+<li>css</li>
+</ul>
+<p></p>
+<p>We'll look at how these 3 languages work together to make awesome apps.</p>
+</div>
+<div id="tools">
+<h1>The Tools</h1>
+<p>We'll be using several free tools from Microsoft for our development. We'll also talk 
+about cross-platform development, and how you can develop apps that can be published to the
+widest variety of platforms. </p>
+<ul>
+<li>Blend for Visual Studio Express</li>
+<li>Microsoft Expression Web</li>
+</ul>
+<p>You can also use a wide variety of other tools, but we'll focus on these to keep our development
+environment consistent.</p>
+
+</div>
+
+<div id="challenge">
+<h1>The Challenge</h1>
+<p>And now, our goal: to create a fantastic learning application that focuses on the Catholic Catechism.
+It is an ambitious project, which will require many different talents! I would love to see how the students
+think the lessons would be the most effective, as well as any ideas for design and more. Hopefully we'll have
+some fun, and come up with some really original ideas for how to make this app amazing.</p>
+<p></p>
+<p></p>
+</div>
+				</div>
+				</div>
+</div>
+
+<!-- end of the POPUP for details -->
+
+</body>
+
+</html>
